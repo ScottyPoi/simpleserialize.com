@@ -110,10 +110,6 @@ export default class Visual<T> extends React.Component<Props<T>, State> {
               <>
                 <NamedOutput name="HashTreeRoot" value={hashTreeRootStr} textarea={false} />
                 <NamedOutput name="Serialized" value={serializedStr} textarea />
-                <button
-                  disabled={!this.props.serialized}
-                  onClick={() => this.downloadFile(this.props.serialized, "ssz")}
-                >{"Download data as .ssz file"}</button>
               </>
               :
               <>
