@@ -1,6 +1,6 @@
 import * as React from "react";
 import {Type} from "@chainsafe/ssz";
-import Visual from './Visual';
+import Visual from "./Visual";
 import Input from "./Input";
 import LoadingOverlay from "react-loading-overlay";
 import BounceLoader from "react-spinners/BounceLoader";
@@ -97,7 +97,8 @@ export default class Visualize<T> extends React.Component<Props, State<T>> {
           <div className='columns is-desktop'>
             <div className='column'>
               <Input
-                serializeModeOn={visualizeModeOn}
+                serializeModeOn={true}
+                visualizeModeOn={true}
                 onProcess={this.process.bind(this)}
                 sszType={sszType}
                 serialized={serialized}

@@ -13,6 +13,7 @@ import {SszWorker} from "./worker";
 type Props<T> = {
   onProcess: (forkName: ForkName, name: string, input: string | T, type: Type<T>, inputType: string) => void;
   serializeModeOn: boolean;
+  visualizeModeOn: boolean;
   sszType: Type<T>;
   serialized: Uint8Array | undefined;
   deserialized: object;
@@ -233,7 +234,7 @@ class Input<T> extends React.Component<Props<T>, State> {
   }
 
   render(): JSX.Element {
-    const {serializeModeOn} = this.props;
+    const {serializeModeOn, visualizeModeOn} = this.props;
     const {serializeInputType} = this.state;
     return (
       <div className='container'>
@@ -321,7 +322,7 @@ class Input<T> extends React.Component<Props<T>, State> {
           disabled={!(this.state.sszTypeName && this.state.input)}
           onClick={this.doProcess.bind(this)}
         >
-          {serializeModeOn ? "Serialize" : "Deserialize"}
+          {visualizeModeOn ? "Visualize" : serializeModeOn ? "Serialize" : "Deserialize"}
         </button>
       </div>
     );
