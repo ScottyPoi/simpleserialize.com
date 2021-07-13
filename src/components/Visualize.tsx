@@ -96,6 +96,17 @@ export default class Visualize<T> extends React.Component<Props, State<T>> {
         <div className='container'>
           <div className='columns is-desktop'>
             <div className='column'>
+              <Visual
+                deserialized={deserialized}
+                serializeModeOn={visualizeModeOn}
+                serialized={serialized}
+                hashTreeRoot={hashTreeRoot}
+                error={error}
+                sszType={sszType}
+                sszTypeName={this.state.name}
+              />
+            </div>
+            <div className='column'>
               <Input
                 serializeModeOn={true}
                 visualizeModeOn={true}
@@ -105,17 +116,6 @@ export default class Visualize<T> extends React.Component<Props, State<T>> {
                 deserialized={deserialized}
                 setOverlay={this.setOverlay.bind(this)}
                 worker={this.worker}
-              />
-            </div>
-            <div className='column'>
-              <Visual
-                deserialized={deserialized}
-                serializeModeOn={visualizeModeOn}
-                serialized={serialized}
-                hashTreeRoot={hashTreeRoot}
-                error={error}
-                sszType={sszType}
-                sszTypeName={this.state.name}
               />
             </div>
           </div>
