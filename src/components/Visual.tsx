@@ -2,6 +2,7 @@
 
 import * as React from "react";
 import NamedOutput from "./display/NamedOutput";
+import VisualOutput from "./display/VisualOutput";
 import ErrorBox from "./display/ErrorBox";
 import {saveAs} from "file-saver";
 
@@ -87,29 +88,12 @@ export default class Visual<T> extends React.Component<Props<T>, State> {
           <>
             <div className='field is-grouped is-grouped-right'>
               <div className='field has-addons'>
-                <div className='control'>
-                  <a className='button is-static'>
-                    Output Type
-                  </a>
-                </div>
-                <div className='control'>
-                  <div className='select'>
-                    <select
-                      value={outputType}
-                      onChange={(e) => this.setOutputType(e.target.value)}>
-                      {
-                        Object.keys(serializeModeOn ? serializeOutputTypes : deserializeOutputTypes).map(
-                          (name) => <option key={name} value={name}>{name}</option>)
-                      }
-                    </select>
-                  </div>
-                </div>
               </div>
             </div>
             {serializeModeOn ?
               <>
-                <NamedOutput name="HashTreeRoot" value={hashTreeRootStr} textarea={false} />
-                <NamedOutput name="Serialized" value={serializedStr} textarea />
+                {/* <NamedOutput name="HashTreeRoot" value={hashTreeRootStr} textarea={false} /> */}
+                <VisualOutput name="Display" value={serializedStr} textarea />
               </>
               :
               <>
